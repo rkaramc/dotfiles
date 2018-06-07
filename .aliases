@@ -10,6 +10,7 @@ alias -- -="cd -"
 
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
+alias gd="cd ~/Documents/Google\ Drive"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
@@ -23,6 +24,7 @@ else # macOS `ls`
 	colorflag="-G"
 	export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
 fi
+export CLICOLOR=1
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
@@ -149,3 +151,6 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Alias to git dotfiles bare repo
+alias config='/usr/bin/git --git-dir=$HOME/code/projects/dotfiles/rkaramc/dotfiles-bare/ --work-tree=$HOME'
