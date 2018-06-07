@@ -11,7 +11,7 @@
 	autocrlf = input
 
 	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.config/git/ignore
+	excludesfile = /Users/rkaramc/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -123,7 +123,7 @@
 	cmd = code-insiders --wait --diff \"$LOCAL\" \"$REMOTE\"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
