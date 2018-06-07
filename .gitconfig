@@ -9,7 +9,6 @@
 [core]
 	editor = code-insiders --wait
 	autocrlf = input
-[core]
 
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.config/git/ignore
@@ -129,7 +128,7 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/rkaramc/.stCommitMsg
+	template = /Users/rkaramc/.config/git/stCommitMsg
 [pull]
 	rebase = true
 [merge]
