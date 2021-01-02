@@ -7,7 +7,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 [core]
-	editor = code-insiders --wait
+	editor = code --wait
 	autocrlf = input
 
 	# Use custom `.gitignore` and `.gitattributes`
@@ -48,7 +48,7 @@
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
 	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
+	p = pull --recurse-submodules
 
 	# Clone a repository including all submodules
 	c = clone --recursive
@@ -91,7 +91,7 @@
 	# Find commits by commit message
 	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 
-	# Remove branches that have already been merged with master
+	# Remove branches that have already been merged with main
 	# a.k.a. ‘delete merged’
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
@@ -116,6 +116,43 @@
 
 	lol = log --oneline --graph --decorate --all
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	# Show the user email for the current repository.
+	whoami = config user.email
+
+[apply]
+
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[color]
+
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	ui = auto
+
+[color "branch"]
+
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+
+[color "status"]
+
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[commit]
+
+	# https://help.github.com/articles/signing-commits-using-gpg/
+	gpgsign = true
 
 [diff]
 	tool = default-difftool
@@ -123,7 +160,7 @@
 	cmd = code-insiders --wait --diff \"$LOCAL\" \"$REMOTE\"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -139,3 +176,8 @@
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
 
+	insteadOf = "gist:"
+
+[init]
+
+	templateDir = ~/.config/git/template/
