@@ -37,9 +37,11 @@
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	last = log -3 HEAD --stat
 
-	# View the current working tree status using the short format
-	s = status -s
+	# View the current working tree status using the short format (with branch)
+	s = status -sb
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -65,7 +67,10 @@
 	remotes = remote -v
 
 	# List aliases
-	aliases = config --get-regexp alias
+	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+
+	# Set alias
+	alias = "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || echo \"usage: git alias <new alias> <original command>\" >&2 && exit 1' -"
 
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
@@ -114,15 +119,23 @@
 		fi \
 	}; f"
 
-	lol = log --oneline --graph --decorate --all
-	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 	# Show the user email for the current repository.
 	whoami = config user.email
+
+	# List global config
+	gl = config --global -l
+
+	# Edit global config
+	ge = config --global -e
+
+	# Generate gitignore files
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 
 [apply]
 
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
+	insteadOf = "gist:"
 
 [color]
 
@@ -171,12 +184,6 @@
 [merge]
 	ff = false
 
-[apply]
-
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
-
-	insteadOf = "gist:"
 
 [init]
 
