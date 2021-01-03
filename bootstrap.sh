@@ -2,10 +2,11 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-git pull origin main;
+git pull origin master;
 
 function doIt() {
 	rsync \
+		--include-from=includes \
 		--exclude-from=excludes \
 		--backup --backup-dir=./backups \
 		-avh --no-perms . ~;
