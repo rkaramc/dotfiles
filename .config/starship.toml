@@ -5,4 +5,12 @@ success_symbol = "[->](bold green) "
 error_symbol = "[->](bold red) "
 
 [package]
-disabled = true
+disabled = false
+
+[hostname]
+ssh_only = false
+style = "bold green"
+
+[username]
+show_always = true
+format = "[$user]($style)@"
