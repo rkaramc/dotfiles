@@ -33,7 +33,7 @@ alias ls="command ls ${colorflag}"
 alias l="ls -lF ${colorflag}"
 
 # List all files colorized in long format, excluding . and ..
-alias la="ls -lAF ${colorflag}"
+alias la="ls -lAFX ${colorflag}"
 
 # List all files
 alias ll="ls -alF ${colorflag}"
