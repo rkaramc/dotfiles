@@ -1,0 +1,15 @@
+excludes
+.DS_Store
+.hushlogin
+.macos
+.osx
+.vimrc
+bootstrap.sh
+brew.sh
+README.md
+LICENSE-MIT.txt
+.git/
+.vim/
+backups/
+bin/
+init/
