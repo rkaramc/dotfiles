@@ -17,7 +17,7 @@
 
 ## When soft line wrapping is enabled, make it wrap lines at blanks
 ## (tabs and spaces) instead of always at the edge of the screen.
-# set atblanks
+set atblanks
 
 ## Automatically indent a newly created line to the same number of
 ## tabs and/or spaces as the preceding line -- or as the next line
@@ -46,7 +46,7 @@ set brackets ""')>]}"
 
 ## Constantly display the cursor position in the status bar.  Note that
 ## this overrides "quickblank".
-# set constantshow
+set constantshow
 
 ## Use cut-from-cursor-to-end-of-line by default.
 # set cutfromcursor
@@ -71,7 +71,7 @@ set historylog
 ## Enable vim-style lock-files.  This is just to let a vim user know you
 ## are editing a file [s]he is trying to edit and vice versa.  There are
 ## no plans to implement vim-style undo state in these files.
-set locking
+# set locking
 
 ## The opening and closing brackets that can be found by bracket
 ## searches.  They cannot contain blank characters.  The former set must
@@ -86,7 +86,7 @@ set mouse
 
 ## Switch on multiple file buffers (inserting a file will put it into
 ## a separate buffer).
-# set multibuffer
+set multibuffer
 
 ## Don't convert files from DOS/Mac format.
 # set noconvert
@@ -104,7 +104,7 @@ set mouse
 # set operatingdir ""
 
 ## Remember the cursor position in each file for the next editing session.
-# set positionlog
+set positionlog
 
 ## Preserve the XON and XOFF keys (^Q and ^S).
 # set preserve
@@ -144,6 +144,9 @@ set mouse
 ## cursor is already at that position, it will jump to the true
 ## beginning of the line.
 set smarthome
+
+## Use smooth scrolling
+set smooth
 
 ## Enable soft line wrapping (AKA full-line display).
 # set softwrap
@@ -297,4 +300,3 @@ bind M-U undo main
 bind M-R redo main
 bind ^U undo main
 bind ^E redo main
-set multibuffer
