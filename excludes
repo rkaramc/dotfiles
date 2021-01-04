@@ -1,4 +1,3 @@
-*
 excludes
 includes
 .DS_Store
@@ -7,4 +6,4 @@ bootstrap.sh
 README.md
 LICENSE-MIT.txt
 .git/
-backups/
+*
