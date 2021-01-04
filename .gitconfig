@@ -11,7 +11,7 @@
 	autocrlf = input
 
 	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = /Users/rkaramc/.config/git/ignore
+	excludesfile = ~/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error

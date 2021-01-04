@@ -8,4 +8,5 @@
 .gitconfig
 .inputrc
 .tmux.conf
-.config/nano/nanorc
+**/.config
+.config/**

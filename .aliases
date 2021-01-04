@@ -30,10 +30,10 @@ export CLICOLOR=1
 alias ls="command ls ${colorflag}"
 
 # List all files colorized in long format
-alias l="ls -lF ${colorflag}"
+alias l="ls -CF ${colorflag}"
 
 # List all files colorized in long format, excluding . and ..
-alias la="ls -lAFX ${colorflag}"
+alias la="ls -AFX ${colorflag}"
 
 # List all files
 alias ll="ls -alF ${colorflag}"
