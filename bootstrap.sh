@@ -9,12 +9,14 @@ function doIt() {
 		--include-from=includes \
 		--exclude-from=excludes \
 		--backup --backup-dir=./backups \
-		-avh --no-perms . ~;
+		-avh $1 --no-perms . ~;
 	source ~/.bash_profile;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt;
+elif [ "$1" == "--dry-run" -o "$1" == "-n" ]; then
+	doIt --dry-run;
 else
 	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
 	echo "";
