@@ -183,6 +183,7 @@
 	rebase = true
 [merge]
 	ff = false
+	log = true
 
 
 [init]
